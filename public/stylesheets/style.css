@@ -1,3 +1,30 @@
-    .test {
-    color :red;
+    .mainText {
+    color :black;
+    padding-top: 70px;
+    padding-left: 30px;
+    }
+    .column {
+        float: left;
+    }
+    .left {
+        width: 4%;
+        height: 100vh;
+        background-color: #CC0633;
+    }
+
+    .middle {
+        width: 92%;
+        height: 100vh;
+    }
+
+    .right {
+        width: 4%;
+        height: 100vh;
+        background-color: #CC0633;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
     }
