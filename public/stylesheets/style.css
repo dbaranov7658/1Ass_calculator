@@ -28,3 +28,7 @@
         display: table;
         clear: both;
     }
+
+    .th, td {
+        border:1px solid #a5a0a0;
+    }
