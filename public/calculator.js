@@ -9,13 +9,13 @@ function getRow() {
                                     <th style="width: 20%; color: #494b4c">Activity ${i}</th>
                                     <th style="width: 20%; color: #494b4c">A${i}</th>
                                     <th style="width: 20%; color: #494b4c">
-                                        <input id="W${i}">
+                                        <input type="number" id="W${i}">
                                     </th>
                                     <th style="width: 20%; color: #494b4c">
                                         <div class="row">
-                                        <input id="G${i}" onchange="getPersent()">
+                                        <input type="number" id="G${i}" onchange="getPersent()">
                                             <b>/</b>
-                                        <input id="GT${i}" onchange="getPersent()">
+                                        <input type="number" id="GT${i}" onchange="getPersent()">
                                         </div>
                                     </th>
                                     <th id="P${i}" style="width: 20%; color: #494b4c"></th>
@@ -51,10 +51,10 @@ function getPersent(){
             if (total === 0){
                 newValue = "<div id="+ newId +">" + "We cannot devide by 0" + "</div>"
             }
-            if (grade < 0 || total < 0){
+            else if (grade < 0 || total < 0){
                 newValue = "<div id="+ newId +">" + "Use only positive numbers" + "</div>"
             }
-            if (grade > total ){
+            else if (grade > total ){
                 newValue = "<div id="+ newId +">" + "It is imposible to have more than 100%" + "</div>"
             }
             else{
@@ -74,6 +74,7 @@ function getWeighted(){
     let totalOfRows = 0
     let divisor = 0
     let answer = 0
+    let isAllWeighted = true
     for (let i = 1; i < amountOfRows + 1; i++){
         let grade = parseFloat(document.getElementById("G" + i).value)
         let total = parseFloat(document.getElementById("GT" + i).value)
@@ -83,9 +84,9 @@ function getWeighted(){
             if (total === 0){
 
             }
-            if (weighted === undefined){
+            if (isNaN(weighted)){
                 alert("There are no value in some row in Weighted")
-                break
+                isAllWeighted = false
             }
             if (grade < 0 || total < 0){
 
@@ -101,7 +102,7 @@ function getWeighted(){
         }
 
     }
-    if (totalOfRows > 0 && divisor !== 0){
+    if (totalOfRows > 0 && divisor !== 0 && isAllWeighted){
         deleteElement("Result")
         answer = ((totalOfRows/divisor)*100).toFixed(2)
         let newValue = "<b style='padding-left: 10px' id="+ "Result" +">" + answer.toString() + " %" + "</b>"
