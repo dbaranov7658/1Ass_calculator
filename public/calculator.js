@@ -85,7 +85,7 @@ function getWeighted(){
 
             }
             if (isNaN(weighted)){
-                alert("There are no value in some row in Weighted")
+                alert("There are no value in some row in Weight Column")
                 isAllWeighted = false
             }
             if (grade < 0 || total < 0){
@@ -101,6 +101,9 @@ function getWeighted(){
 
         }
 
+    }
+    if (divisor === 0){
+        alert("Weight can not be 0")
     }
     if (totalOfRows > 0 && divisor !== 0 && isAllWeighted){
         deleteElement("Result")
