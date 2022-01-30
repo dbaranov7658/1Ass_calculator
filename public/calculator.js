@@ -5,6 +5,7 @@ function getRow() {
     const positionSelect = document.querySelector("[secondid="+ filter +"]");
     amountOfRows++
     let i = amountOfRows
+
     positionSelect.insertAdjacentHTML("afterend", `<tr style="height: 60px" secondId="Row${i}">
                                     <th style="width: 20%; color: #494b4c">Activity ${i}</th>
                                     <th style="width: 20%; color: #494b4c">A${i}</th>
@@ -20,9 +21,6 @@ function getRow() {
                                     </th>
                                     <th id="P${i}" style="width: 20%; color: #494b4c"></th>
                                 </tr>`);
-
-    MainContainer
-
 
     let newCalculatedHeight = 650 + (amountOfRows - 4)*60
     let newHeight = newCalculatedHeight.toString() + "px"
