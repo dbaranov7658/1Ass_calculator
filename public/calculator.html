@@ -3,48 +3,90 @@
         <head>
             <title>Best calculator</title>
             <link rel="stylesheet" href="stylesheets/style.css">
+            <script src="calculator.js"></script>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
 
-            <body style="margin: unset">
+            <body style="margin: unset; background-color: #a5192d">
             <div class="row">
                 <div class="column left">
                 </div>
-                <div class="column middle">
-                    <div class="row" style="width: 100%; height: 40px; background-color: #54585A">
+                <div class="column middle" id="MainContainer" style="background-color: #ffffff; height: 100vh;">
+                    <div class="row" style="width: 100%; height: 40px; background-color: #3c3935">
 
                     </div>
 
                     <h1 class="mainText">Grade calculator</h1>
-                    <div class="row" style="width: 70%; height: 700px; background-color: #cfe1fa; margin-left: 30px";>
-                        <div class="column" style="color: red; padding-top: 20px; width: 100%">
+                    <div class="row" id="Container" style="width: 70%; height: 650px; background-color: #e9eff1; margin-left: 30px" ;>
+                        <div class="column" style="color: #b71720; padding-top: 20px; width: 100%">
                             <h2 style="padding-left: 15px">Activities</h2>
                         </div>
 
-                        <div class="column" style="color: black; width: 100%">
+                        <div class="column" style="color: #424444; width: 100%;padding-bottom: 15px">
                             <h4 style="padding-left: 15px">Give grades to the numeric activities</h4>
                         </div>
+                        <div style="padding: 0 15px 0 15px">
+                            <table style="width:100%; border: 1px solid gray" >
+                                <tr style="height: 30px" secondId="position">
+                                    <th style="width: 20%; background-color: #e8e4e4; color: #0a0a0a">Name</th>
+                                    <th style="width: 20%; background-color: #e8e4e4; color: #0a0a0a">Short Name</th>
+                                    <th style="width: 20%; background-color: #e8e4e4; color: #0a0a0a">Weight</th>
+                                    <th style="width: 20%; background-color: #e8e4e4; color: #0a0a0a">Grade</th>
+                                    <th style="width: 20%; background-color: #e8e4e4; color: #0a0a0a">Percent</th>
+                                </tr>
+                                <script type="text/javascript">
+                                    (function() {
+                                        for (let i = 4; i > 0; i--){
+                                            let t = "position"
+                                            const positionSelect = document.querySelector("[secondid="+ t +"]");
+                                            positionSelect.insertAdjacentHTML("afterend", `<tr style="height: 60px" secondId="Row${i}" >
+                                    <th style="width: 20%; color: #494b4c">Activity ${i}</th>
+                                    <th style="width: 20%; color: #494b4c">A${i}</th>
+                                    <th style="width: 20%; color: #494b4c">
+                                        <input id="W${i}">
+                                    </th>
+                                    <th style="width: 20%; color: #494b4c">
+                                        <div class="row">
+                                        <input id="G${i}" onchange="getPersent()">
+                                            <b>/</b>
+                                        <input id="GT${i}" onchange="getPersent()">
+                                        </div>
+                                    </th>
+                                    <th id="P${i}" style="width: 20%; color: #494b4c" id="P${i}"></th>
+                                </tr>`);
+                                        }
 
-                        <table style="width:100%">
-                            <tr>
-                                <th>Company</th>
-                                <th>Contact</th>
-                                <th>Country</th>
-                            </tr>
-                            <tr>
-                                <td>Alfreds Futterkiste</td>
-                                <td>Maria Anders</td>
-                                <td>Germany</td>
-                            </tr>
-                            <tr>
-                                <td>Centro comercial Moctezuma</td>
-                                <td>Francisco Chang</td>
-                                <td>Mexico</td>
-                            </tr>
-                        </table>
+
+                                    })();
+                                </script>
+                            </table>
+                        </div>
+
+                        <button style="margin-left: 15px; margin-top: 40px" onclick="getRow()"> ADD ACTIVITY</button>
+
+                        <h2 style="padding-left: 15px;color: #b71720" id="R"></h2>
+
+                        <div class="row" style="width: 100%; padding-left: 15px">
+                            <div class="column" style="width: 75%; height: 20px">
+
+                            </div>
+                           <div class="column">
+                               <button style="width: 132px" onclick="getWeighted()"> WEIGHTED</button>
+                               <button style="margin-left: 1px; width: 132px" onclick="getMean()"> MEAN</button>
+                           </div>
+
+
+
+
+                        </div>
+
+
 
 
                     </div>
+                    <div class="row" style="width: 100%; height: 40px; background-color: #3c3935; margin-top: 90px">
 
+                    </div>
                 </div>
                 <div class="column right">
                 </div>
