@@ -2,7 +2,7 @@
     <html lang="us">
         <head>
             <title>Best calculator</title>
-            <link rel="stylesheet" href="stylesheets/style.css">
+            <link rel="stylesheet" href="stylesheets/calculator.css">
             <script src="calculator.js"></script>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
@@ -63,16 +63,16 @@
                         </div>
 
                         <button style="margin-left: 15px; margin-top: 40px" onclick="getRow()"> ADD ACTIVITY</button>
-
-                        <h2 style="padding-left: 15px;color: #b71720" id="R"></h2>
+                        <h2 style="padding-left: 15px;color: #b71720">Result</h2>
 
                         <div class="row" style="width: 100%; padding-left: 15px">
-                            <div class="column" style="width: 75%; height: 20px">
+                            <div class="column" style="width: 50%; height: 20px">
 
+                                <div style="color: #b71720" id="R"></div>
                             </div>
-                           <div class="column">
+                           <div class="column" style="width: 50%; text-align: right">
                                <button style="width: 132px" onclick="getWeighted()"> WEIGHTED</button>
-                               <button style="margin-left: 1px; width: 132px" onclick="getMean()"> MEAN</button>
+                               <button style="margin-right: 25px; width: 132px" onclick="getMean()"> MEAN</button>
                            </div>
 
 

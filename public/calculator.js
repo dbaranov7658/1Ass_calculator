@@ -108,7 +108,7 @@ function getWeighted(){
     if (totalOfRows > 0 && divisor !== 0 && isAllWeighted){
         deleteElement("Result")
         answer = ((totalOfRows/divisor)*100).toFixed(2)
-        let newValue = "<b style='padding-left: 10px' id="+ "Result" +">" + answer.toString() + " %" + "</b>"
+        let newValue = "<b id="+ "Result" +">" + answer.toString() + " %" + "</b>"
         document.getElementById("R").insertAdjacentHTML("afterbegin",
             newValue);
     }
@@ -145,7 +145,7 @@ function getMean(){
     if (totalOfRows > 0 && divisor !== 0){
         deleteElement("Result")
         answer = ((totalOfRows/divisor)*100).toFixed(2)
-        let newValue = "<b style='padding-left: 10px' id="+ "Result" +">" + answer.toString() + " %" + "</b>"
+        let newValue = "<b id="+ "Result" +">" + answer.toString() + " %" + "</b>"
         document.getElementById("R").insertAdjacentHTML("afterbegin",
             newValue);
     }
