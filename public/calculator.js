@@ -83,19 +83,19 @@ function getWeighted(){
                 alert("it is impossible to divide by 0. Pls change it in order to get Weighted result")
                 isAllWeighted = false
             }
-            if (isNaN(weighted)){
+            else if (isNaN(weighted)){
                 alert("There is no value in some row in Weight Column. Pls fill it in order to get Weighted result")
                 isAllWeighted = false
             }
-            if (weighted < 0){
+            else if (weighted < 0){
                 alert("There is negative number in some row in Weight Column. Pls change it in order to get Weighted result")
                 isAllWeighted = false
             }
-            if (grade < 0 || total < 0){
+            else if (grade < 0 || total < 0){
                 alert("There is negative number in some row in Grade Column. Pls change it in order to get Weighted result")
                 isAllWeighted = false
             }
-            if (grade > total &&  (grade < 0 && total < 0) ){
+            else if (grade > total &&  (grade >= 0 && total >= 0) ){
                 alert("It is impossible to have more than 100% in some row in Percent Column. Pls change it in order to get Weighted result")
                 isAllWeighted = false
             }
@@ -107,7 +107,7 @@ function getWeighted(){
         }
 
     }
-    if (divisor === 0){
+    if (divisor === 0 && isAllWeighted){
         alert("Weight can not be 0")
     }
     if (totalOfRows > 0 && divisor !== 0 && isAllWeighted){
@@ -139,7 +139,7 @@ function getMean(){
                 alert("There is negative number in some row in Grade Column. Pls change it in order to get Mean result")
                 isAllMeaned = false
             }
-            else if (grade > total && (grade < 0 && total < 0)){
+            else if (grade > total && (grade >= 0 && total >= 0)){
                 alert("It is impossible to have more than 100% in some row in Percent Column. Pls change it in order to get Mean result")
                 isAllMeaned = false
             }
