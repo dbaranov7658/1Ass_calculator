@@ -80,7 +80,8 @@ function getWeighted(){
         let percent = ((grade/total)*100).toFixed(2)
         if (!isNaN(percent)){
             if (total === 0){
-
+                alert("it is impossible to divide by 0. Pls change it in order to get Weighted result")
+                isAllWeighted = false
             }
             if (isNaN(weighted)){
                 alert("There is no value in some row in Weight Column. Pls fill it in order to get Weighted result")
@@ -131,7 +132,8 @@ function getMean(){
         let percent = ((grade/total)*100).toFixed(2)
         if (!isNaN(percent)){
             if (total === 0){
-
+                alert("it is impossible to divide by 0. Pls change it in order to get Mean result")
+                isAllMeaned = false
             }
             else if (grade < 0 || total < 0){
                 alert("There is negative number in some row in Grade Column. Pls change it in order to get Mean result")
