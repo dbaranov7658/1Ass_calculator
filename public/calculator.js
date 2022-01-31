@@ -53,7 +53,7 @@ function getPersent(){
                 newValue = "<div id="+ newId +">" + "Use only positive numbers" + "</div>"
             }
             else if (grade > total ){
-                newValue = "<div id="+ newId +">" + "It is imposible to have more than 100%" + "</div>"
+                newValue = "<div id="+ newId +">" + "It is impossible to have more than 100%" + "</div>"
             }
             else{
                 newValue = "<b id="+ newId +">" + percent.toString() + " %" + "</b>"
@@ -83,14 +83,20 @@ function getWeighted(){
 
             }
             if (isNaN(weighted)){
-                alert("There are no value in some row in Weight Column")
+                alert("There is no value in some row in Weight Column. Pls fill it in order to get Weighted result")
+                isAllWeighted = false
+            }
+            if (weighted < 0){
+                alert("There is negative number in some row in Weight Column. Pls change it in order to get Weighted result")
                 isAllWeighted = false
             }
             if (grade < 0 || total < 0){
-
+                alert("There is negative number in some row in Grade Column. Pls change it in order to get Weighted result")
+                isAllWeighted = false
             }
-            if (grade > total ){
-
+            if (grade > total &&  (grade < 0 && total < 0) ){
+                alert("It is impossible to have more than 100% in some row in Percent Column. Pls change it in order to get Weighted result")
+                isAllWeighted = false
             }
             else{
                 totalOfRows = totalOfRows + parseFloat((grade/total).toFixed(2))*weighted
@@ -118,6 +124,7 @@ function getMean(){
     let totalOfRows = 0
     let divisor = 0
     let answer = 0
+    let isAllMeaned = true
     for (let i = 1; i < amountOfRows + 1; i++){
         let grade = parseFloat(document.getElementById("G" + i).value)
         let total = parseFloat(document.getElementById("GT" + i).value)
@@ -126,11 +133,13 @@ function getMean(){
             if (total === 0){
 
             }
-            if (grade < 0 || total < 0){
-
+            else if (grade < 0 || total < 0){
+                alert("There is negative number in some row in Grade Column. Pls change it in order to get Mean result")
+                isAllMeaned = false
             }
-            if (grade > total ){
-
+            else if (grade > total && (grade < 0 && total < 0)){
+                alert("It is impossible to have more than 100% in some row in Percent Column. Pls change it in order to get Mean result")
+                isAllMeaned = false
             }
             else{
                 totalOfRows = totalOfRows + parseFloat((grade/total).toFixed(2))
@@ -140,7 +149,7 @@ function getMean(){
         }
 
     }
-    if (totalOfRows > 0 && divisor !== 0){
+    if (totalOfRows > 0 && divisor !== 0 && isAllMeaned){
         deleteElement("Result")
         answer = ((totalOfRows/divisor)*100).toFixed(2)
         let newValue = "<b id="+ "Result" +">" + answer.toString() + " %" + "</b>"
